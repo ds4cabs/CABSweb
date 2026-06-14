@@ -1,0 +1,42 @@
+// Centralized environment access + capability flags.
+//
+// The platform is designed to run end-to-end with NO secrets configured: every
+// integration degrades gracefully to seeded mock data. As you add real keys,
+// the corresponding `has*` flag flips to `true` and the live adapter is used.
+
+function get(key: string): string | undefined {
+  const v = process.env[key];
+  return v && v.length > 0 ? v : undefined;
+}
+
+export const env = {
+  appUrl: get("NEXT_PUBLIC_APP_URL") ?? "http://localhost:3000",
+  appName: get("NEXT_PUBLIC_APP_NAME") ?? "CABSweb",
+
+  supabaseUrl: get("NEXT_PUBLIC_SUPABASE_URL"),
+  supabaseAnonKey: get("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
+
+  authProvider: (get("AUTH_PROVIDER") ?? "clerk") as "clerk" | "auth0",
+
+  openaiKey: get("OPENAI_API_KEY"),
+  openaiChatModel: get("OPENAI_CHAT_MODEL") ?? "gpt-4o",
+  openaiEmbeddingModel: get("OPENAI_EMBEDDING_MODEL") ?? "text-embedding-3-large",
+
+  vectorProvider: (get("VECTOR_PROVIDER") ?? "pgvector") as
+    | "pgvector"
+    | "pinecone"
+    | "qdrant",
+
+  hubspotToken: get("HUBSPOT_ACCESS_TOKEN"),
+  stripeKey: get("STRIPE_SECRET_KEY"),
+  eventbriteToken: get("EVENTBRITE_API_TOKEN"),
+  zoomClientId: get("ZOOM_CLIENT_ID"),
+} as const;
+
+export const capabilities = {
+  supabase: Boolean(env.supabaseUrl && env.supabaseAnonKey),
+  openai: Boolean(env.openaiKey),
+  hubspot: Boolean(env.hubspotToken),
+  stripe: Boolean(env.stripeKey),
+  events: Boolean(env.eventbriteToken || env.zoomClientId),
+} as const;
