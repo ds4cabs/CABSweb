@@ -16,7 +16,8 @@ export const env = {
   supabaseUrl: get("NEXT_PUBLIC_SUPABASE_URL"),
   supabaseAnonKey: get("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
 
-  authProvider: (get("AUTH_PROVIDER") ?? "clerk") as "clerk" | "auth0",
+  authGoogleId: get("AUTH_GOOGLE_ID"),
+  authGoogleSecret: get("AUTH_GOOGLE_SECRET"),
 
   openaiKey: get("OPENAI_API_KEY"),
   openaiChatModel: get("OPENAI_CHAT_MODEL") ?? "gpt-4o",
@@ -34,6 +35,13 @@ export const env = {
 } as const;
 
 export const capabilities = {
+  googleAuth: Boolean(env.authGoogleId && env.authGoogleSecret),
+  // Dev-only escape hatch: when Google isn't configured and we're not in
+  // production, expose a one-click mock sign-in so member/dashboard areas are
+  // testable locally. Never active in a production build.
+  devAuth:
+    process.env.NODE_ENV !== "production" &&
+    !(env.authGoogleId && env.authGoogleSecret),
   supabase: Boolean(env.supabaseUrl && env.supabaseAnonKey),
   openai: Boolean(env.openaiKey),
   hubspot: Boolean(env.hubspotToken),

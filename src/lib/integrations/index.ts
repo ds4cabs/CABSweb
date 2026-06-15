@@ -24,10 +24,10 @@ export const integrations: IntegrationStatus[] = [
   },
   {
     key: "auth",
-    name: env.authProvider === "auth0" ? "Auth0" : "Clerk",
+    name: "NextAuth (Google)",
     purpose: "Member identity, SSO, session management, org/role gating.",
-    sdk: env.authProvider === "auth0" ? "@auth0/nextjs-auth0" : "@clerk/nextjs",
-    connected: false,
+    sdk: "next-auth",
+    connected: capabilities.googleAuth,
   },
   {
     key: "openai",

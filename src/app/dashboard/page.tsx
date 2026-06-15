@@ -1,13 +1,18 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { PageHeader } from "@/components/PageHeader";
+import { auth } from "@/auth";
 import { members, events, opportunities, knowledge } from "@/lib/data/seed";
 import { suggestConnections, matchMentors } from "@/lib/ai/recommend";
 import { features } from "@/lib/nav";
 
 export const metadata: Metadata = { title: "Dashboard" };
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const session = await auth();
+  if (!session?.user) redirect("/login?callbackUrl=/dashboard");
+
   // Demo "current member" — in production this comes from the auth session.
   const me = members.find((m) => m.id === "m4")!; // Kevin Wu, seeking a mentor
   const connections = suggestConnections(me, 3);

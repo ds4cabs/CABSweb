@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/Brand";
+import { AuthControls } from "@/components/AuthControls";
 import { mainNav } from "@/lib/nav";
 
 export function SiteHeader() {
@@ -24,9 +25,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link href="/dashboard" className="btn-primary">
-          Profile
-        </Link>
+        <AuthControls />
       </div>
     </header>
   );
