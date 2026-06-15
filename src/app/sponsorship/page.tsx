@@ -6,8 +6,8 @@ export const metadata: Metadata = { title: "Sponsorship & Partnerships" };
 
 const TIER_ORDER = ["platinum", "gold", "silver", "community"] as const;
 const TIER_STYLE: Record<string, string> = {
-  platinum: "border-indigo/50 text-indigo-soft",
-  gold: "border-emerald/50 text-emerald-soft",
+  platinum: "border-teal/50 text-orange",
+  gold: "border-orange/50 text-teal-deep",
   silver: "",
   community: "",
 };
@@ -36,7 +36,7 @@ export default function SponsorshipPage() {
             { t: "Community", d: "Mission-aligned nonprofits & academia." },
           ].map((x) => (
             <div key={x.t} className="card">
-              <h3 className="font-semibold text-white">{x.t}</h3>
+              <h3 className="font-semibold text-ink">{x.t}</h3>
               <p className="mt-1 text-sm text-slate-400">{x.d}</p>
             </div>
           ))}
@@ -45,12 +45,12 @@ export default function SponsorshipPage() {
         {/* Current partners */}
         {byTier.map((group) => (
           <section key={group.tier} className="mt-10">
-            <h2 className="text-xl font-bold capitalize text-white">{group.tier} partners</h2>
+            <h2 className="text-xl font-bold capitalize text-ink">{group.tier} partners</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {group.items.map((s) => (
                 <article key={s.id} className="card card-hover">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-white">{s.name}</h3>
+                    <h3 className="font-semibold text-ink">{s.name}</h3>
                     <span className={`chip ${TIER_STYLE[s.tier]}`}>{s.tier}</span>
                   </div>
                   <p className="mt-2 text-sm text-slate-400">{s.partnership}</p>
@@ -63,12 +63,12 @@ export default function SponsorshipPage() {
 
         {/* CRM pipeline note */}
         <section className="card mt-12">
-          <h2 className="font-semibold text-white">Partnership pipeline (HubSpot-synced)</h2>
+          <h2 className="font-semibold text-ink">Partnership pipeline (HubSpot-synced)</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-4">
             {["Prospect", "In discussion", "Activated", "Renewal"].map((stage, i) => (
               <div key={stage} className="rounded-xl border border-line bg-surface-2 p-4">
-                <p className="font-mono text-xs text-emerald-soft">stage 0{i + 1}</p>
-                <p className="mt-1 font-medium text-white">{stage}</p>
+                <p className="font-mono text-xs text-teal-deep">stage 0{i + 1}</p>
+                <p className="mt-1 font-medium text-ink">{stage}</p>
               </div>
             ))}
           </div>

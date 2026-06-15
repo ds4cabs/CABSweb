@@ -1,24 +1,27 @@
+// CABS wordmark — teal letters with a small orange accent on the "A",
+// matching cabsweb.org. Pairs with the bilingual society name in the header.
 export function BrandMark({ size = 34 }: { size?: number }) {
   return (
-    <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true">
-      <defs>
-        <linearGradient id="cabsGrad" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0" stopColor="#10b981" />
-          <stop offset="1" stopColor="#6366f1" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="100" rx="22" fill="url(#cabsGrad)" />
+    <svg
+      viewBox="0 0 140 56"
+      height={size}
+      width={(size * 140) / 56}
+      role="img"
+      aria-label="CABS"
+    >
       <text
-        x="50"
-        y="64"
-        fontFamily="Inter, Arial"
-        fontSize="34"
+        x="0"
+        y="42"
+        fontFamily="Inter, Arial, sans-serif"
+        fontSize="46"
         fontWeight="800"
-        textAnchor="middle"
-        fill="white"
+        letterSpacing="-1"
+        fill="#1c9aa8"
       >
-        CB
+        CABS
       </text>
+      {/* orange accent stroke under the wordmark */}
+      <rect x="2" y="50" width="58" height="3" rx="1.5" fill="#e8861e" />
     </svg>
   );
 }

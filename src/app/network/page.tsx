@@ -21,12 +21,12 @@ export default function NetworkPage() {
       <div className="container-cabs grid gap-10 py-10 lg:grid-cols-2">
         {/* Ventures */}
         <section>
-          <h2 className="text-2xl font-bold text-white">Ventures raising</h2>
+          <h2 className="text-2xl font-bold text-ink">Ventures raising</h2>
           <div className="mt-4 space-y-4">
             {ventures.map((v) => (
               <article key={v.id} className="card card-hover">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-white">{v.company}</h3>
+                  <h3 className="font-semibold text-ink">{v.company}</h3>
                   <span className="chip">{v.stage}</span>
                 </div>
                 <p className="mt-2 text-sm text-slate-300">{v.oneLiner}</p>
@@ -39,7 +39,7 @@ export default function NetworkPage() {
                   Founders: {v.founders.map(founderName).join(", ")}
                 </p>
                 {v.raising && (
-                  <p className="mt-2 text-sm font-medium text-emerald-soft">
+                  <p className="mt-2 text-sm font-medium text-teal-deep">
                     Raising {usd(v.raising.amountUsd)} · {v.raising.round}
                   </p>
                 )}
@@ -50,12 +50,12 @@ export default function NetworkPage() {
 
         {/* Investors */}
         <section>
-          <h2 className="text-2xl font-bold text-white">Active investors</h2>
+          <h2 className="text-2xl font-bold text-ink">Active investors</h2>
           <div className="mt-4 space-y-4">
             {investors.map((inv) => (
               <article key={inv.id} className="card card-hover">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-white">{inv.name}</h3>
+                  <h3 className="font-semibold text-ink">{inv.name}</h3>
                   <span className="chip">{inv.firm}</span>
                 </div>
                 <p className="mt-2 text-sm text-slate-400">{inv.thesis}</p>

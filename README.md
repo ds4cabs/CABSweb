@@ -6,6 +6,12 @@
 
 **CABS — Chinese American Biopharmaceutical Society** · San Francisco Bay Area · 3,500+ members
 
+[![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 [cabsweb.org](https://www.cabsweb.org/) · [DS4CABS](https://ds4cabs.github.io/) · Built by **ds4cabs**
 
 </div>
@@ -16,6 +22,22 @@ CABSweb transforms CABS from a traditional event- and membership-focused website
 comprehensive **talent, knowledge, and innovation ecosystem** for the global life sciences
 community. Members discover mentors, experts, founders, investors, careers, educational
 resources, and strategic collaborations through an AI-powered, personalized experience.
+
+The site is built in **two layers**:
+
+1. **Public site** — a fast, welcoming marketing presence that mirrors cabsweb.org (Home, News & Events, Members, Sponsors, Donate, About).
+2. **Member app** — eight AI-powered modules that turn CABS's people and content into a living, searchable ecosystem.
+
+## 🌐 Public site
+
+| Page | Route | Purpose |
+| --- | --- | --- |
+| 🏠 **Home** | [`/`](src/app/page.tsx) | Landing page with the CABS story and module entry points. |
+| 📰 **News & Events** | [`/knowledge-hub`](src/app/knowledge-hub/page.tsx) | Conferences, talks, and the content pipeline. |
+| 👥 **Members** | [`/talent-graph`](src/app/talent-graph/page.tsx) | The searchable community of members and leaders. |
+| 🤝 **Sponsors** | [`/sponsorship`](src/app/sponsorship/page.tsx) | Sponsorship tiers and partnership management. |
+| 💝 **Donate** | [`/donate`](src/app/donate/page.tsx) | Support CABS as a non-profit — scholarships, programs, conferences. |
+| ℹ️ **About Us** | [`/about`](src/app/about/page.tsx) | Mission, community stats, and what CABS stands for. |
 
 ## ✨ Modules
 
@@ -33,6 +55,7 @@ resources, and strategic collaborations through an AI-powered, personalized expe
 ## 🧱 Tech stack
 
 - **Frontend:** [Next.js 14](https://nextjs.org/) (App Router) + React 18 + TypeScript + Tailwind CSS
+- **Typography:** [Inter](https://rsms.me/inter/) + [JetBrains Mono](https://www.jetbrains.com/lp/mono/) via `next/font` (self-hosted, zero layout shift)
 - **Backend / DB:** [Supabase](https://supabase.com/) (Postgres, storage, RLS, realtime)
 - **Auth / identity:** [Clerk](https://clerk.com/) (default) or [Auth0](https://auth0.com/)
 - **AI:** [OpenAI](https://platform.openai.com/) — embeddings, semantic search, recommendations, generation, assistant
@@ -69,7 +92,10 @@ npm run typecheck   # tsc --noEmit
 ```
 src/
 ├── app/                      # Next.js App Router
+│   ├── layout.tsx            # root layout, fonts, header/footer
 │   ├── page.tsx              # landing page
+│   ├── about/                # mission + community stats
+│   ├── donate/               # non-profit giving
 │   ├── dashboard/            # personalized member home
 │   ├── talent-graph/         # searchable member/leader graph (client)
 │   ├── assistant/            # AI assistant chat (client)

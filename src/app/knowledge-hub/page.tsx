@@ -33,12 +33,12 @@ export default function KnowledgeHubPage() {
       <div className="container-cabs py-10">
         {/* Pipeline */}
         <section className="card">
-          <h2 className="font-semibold text-white">The automated content pipeline</h2>
+          <h2 className="font-semibold text-ink">The automated content pipeline</h2>
           <ol className="mt-5 grid gap-4 sm:grid-cols-5">
             {PIPELINE.map((p, i) => (
               <li key={p.step} className="relative">
-                <div className="font-mono text-xs text-emerald-soft">0{i + 1}</div>
-                <p className="mt-1 font-semibold text-white">{p.step}</p>
+                <div className="font-mono text-xs text-teal-deep">0{i + 1}</div>
+                <p className="mt-1 font-semibold text-ink">{p.step}</p>
                 <p className="mt-1 text-xs text-slate-400">{p.detail}</p>
               </li>
             ))}
@@ -46,7 +46,7 @@ export default function KnowledgeHubPage() {
         </section>
 
         {/* Knowledge assets */}
-        <h2 className="mt-12 text-2xl font-bold text-white">Knowledge assets</h2>
+        <h2 className="mt-12 text-2xl font-bold text-ink">Knowledge assets</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {knowledge.map((k) => (
             <article key={k.id} className="card card-hover">
@@ -54,7 +54,7 @@ export default function KnowledgeHubPage() {
                 <span className="chip">{KIND_ICON[k.kind]} {k.kind}</span>
                 <span className="text-xs text-slate-500">{k.date}</span>
               </div>
-              <h3 className="mt-3 font-semibold text-white">{k.title}</h3>
+              <h3 className="mt-3 font-semibold text-ink">{k.title}</h3>
               <p className="mt-1 text-xs text-slate-500">{k.source}{k.durationMin ? ` · ${k.durationMin} min` : ""}</p>
               <p className="mt-2 text-sm text-slate-400">{k.summary}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
@@ -70,12 +70,12 @@ export default function KnowledgeHubPage() {
         </div>
 
         {/* Events feed */}
-        <h2 className="mt-12 text-2xl font-bold text-white">Upcoming events</h2>
+        <h2 className="mt-12 text-2xl font-bold text-ink">Upcoming events</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           {events.map((e) => (
             <article key={e.id} className="card">
               <span className="chip">{e.format}</span>
-              <h3 className="mt-3 font-semibold text-white">{e.title}</h3>
+              <h3 className="mt-3 font-semibold text-ink">{e.title}</h3>
               <p className="mt-1 text-sm text-slate-400">{e.date} · {e.venue}</p>
               <p className="mt-2 text-sm text-slate-400">{e.description}</p>
               {typeof e.registered === "number" && e.capacity && (

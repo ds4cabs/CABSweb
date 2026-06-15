@@ -8,29 +8,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // CABS / DS4CABS brand palette
-        ink: "#0b1020", // deep navy background
-        surface: "#11182f",
-        "surface-2": "#161f3d",
-        line: "#243056",
-        emerald: {
-          DEFAULT: "#10b981",
-          soft: "#34d399",
+        // CABS brand palette (matches cabsweb.org)
+        ink: "#143642", // deep teal-navy text
+        surface: "#ffffff",
+        "surface-2": "#f1f7f9",
+        line: "#dbe7eb",
+        // Teal — logo + secondary buttons
+        teal: {
+          DEFAULT: "#1c9aa8", // logo mark
+          soft: "#3bb2bf",
+          deep: "#2f7d8d", // teal CTA buttons
         },
-        indigo: {
-          DEFAULT: "#6366f1",
-          soft: "#818cf8",
+        // Orange — primary CTA + accents
+        orange: {
+          DEFAULT: "#e8861e",
+          soft: "#f29a35",
+          deep: "#cf6f12",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(135deg, #10b981 0%, #6366f1 100%)",
+        "brand-gradient": "linear-gradient(135deg, #1c9aa8 0%, #2f7d8d 100%)",
+        "hero-wash": "linear-gradient(180deg, #eaf4f7 0%, #f7fbfc 60%, #ffffff 100%)",
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(99,102,241,0.18), 0 18px 50px -20px rgba(16,185,129,0.35)",
+        glow: "0 10px 30px -12px rgba(28,154,168,0.35)",
+        card: "0 1px 3px rgba(20,54,66,0.08), 0 12px 30px -18px rgba(20,54,66,0.25)",
       },
     },
   },

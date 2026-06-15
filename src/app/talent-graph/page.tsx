@@ -38,12 +38,12 @@ export default function TalentGraphPage() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search expertise, e.g. 'gene editing', 'regulatory', 'AI drug discovery'…"
-            className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-indigo"
+            className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink outline-none placeholder:text-slate-500 focus:border-teal"
           />
           <select
             value={role}
             onChange={(e) => setRole(e.target.value as MemberRole | "all")}
-            className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-white outline-none focus:border-indigo"
+            className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink outline-none focus:border-teal"
           >
             <option value="all">All roles</option>
             {ROLES.map((r) => (
@@ -58,11 +58,11 @@ export default function TalentGraphPage() {
           {results.map((m) => (
             <article key={m.id} className="card card-hover">
               <div className="flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient font-bold text-white">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient font-bold text-ink">
                   {m.avatarInitials}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">{m.name}</h3>
+                  <h3 className="font-semibold text-ink">{m.name}</h3>
                   <p className="text-xs text-slate-400">{m.headline}</p>
                 </div>
               </div>
@@ -74,8 +74,8 @@ export default function TalentGraphPage() {
                 ))}
               </div>
               <div className="mt-4 flex gap-2">
-                {m.openToMentoring && <span className="chip border-emerald/40 text-emerald-soft">mentoring</span>}
-                {m.seekingMentor && <span className="chip border-indigo/40 text-indigo-soft">seeking mentor</span>}
+                {m.openToMentoring && <span className="chip border-teal/40 text-teal-deep">mentoring</span>}
+                {m.seekingMentor && <span className="chip border-orange/40 text-orange">seeking mentor</span>}
               </div>
             </article>
           ))}

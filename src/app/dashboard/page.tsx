@@ -26,11 +26,11 @@ export default function DashboardPage() {
         {/* Profile + quick links */}
         <section className="card lg:col-span-1">
           <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient font-bold text-white">
+            <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient font-bold text-ink">
               {me.avatarInitials}
             </div>
             <div>
-              <p className="font-semibold text-white">{me.name}</p>
+              <p className="font-semibold text-ink">{me.name}</p>
               <p className="text-sm text-slate-400">{me.headline}</p>
             </div>
           </div>
@@ -53,17 +53,17 @@ export default function DashboardPage() {
         <section className="lg:col-span-2 space-y-6">
           <div className="card">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-white">🧭 Recommended mentors</h2>
-              <Link href="/mentorship" className="text-sm text-emerald-soft hover:underline">View all</Link>
+              <h2 className="font-semibold text-ink">🧭 Recommended mentors</h2>
+              <Link href="/mentorship" className="text-sm text-teal-deep hover:underline">View all</Link>
             </div>
             <ul className="mt-4 divide-y divide-line">
               {mentors.map((m) => (
                 <li key={m.id} className="flex items-center justify-between py-3">
                   <div>
-                    <p className="text-sm font-medium text-white">{m.name}</p>
+                    <p className="text-sm font-medium text-ink">{m.name}</p>
                     <p className="text-xs text-slate-400">{m.headline} · {m.company}</p>
                   </div>
-                  <span className="chip border-emerald/40 text-emerald-soft">match {m.matchScore}</span>
+                  <span className="chip border-teal/40 text-teal-deep">match {m.matchScore}</span>
                 </li>
               ))}
             </ul>
@@ -71,11 +71,11 @@ export default function DashboardPage() {
 
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="card">
-              <h2 className="font-semibold text-white">👋 People to meet</h2>
+              <h2 className="font-semibold text-ink">👋 People to meet</h2>
               <ul className="mt-4 space-y-3">
                 {connections.map((c) => (
                   <li key={c.id} className="text-sm">
-                    <p className="font-medium text-white">{c.name}</p>
+                    <p className="font-medium text-ink">{c.name}</p>
                     <p className="text-xs text-slate-400">{c.headline}</p>
                   </li>
                 ))}
@@ -83,13 +83,13 @@ export default function DashboardPage() {
             </div>
             <div className="card">
               <div className="flex items-center justify-between">
-                <h2 className="font-semibold text-white">📅 Upcoming</h2>
-                <Link href="/knowledge-hub" className="text-sm text-emerald-soft hover:underline">All events</Link>
+                <h2 className="font-semibold text-ink">📅 Upcoming</h2>
+                <Link href="/knowledge-hub" className="text-sm text-teal-deep hover:underline">All events</Link>
               </div>
               <ul className="mt-4 space-y-3">
                 {upcoming.map((e) => (
                   <li key={e.id} className="text-sm">
-                    <p className="font-medium text-white">{e.title}</p>
+                    <p className="font-medium text-ink">{e.title}</p>
                     <p className="text-xs text-slate-400">{e.date} · {e.venue}</p>
                   </li>
                 ))}
@@ -99,13 +99,13 @@ export default function DashboardPage() {
 
           <div className="card">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-white">💼 Opportunities for you</h2>
-              <Link href="/careers" className="text-sm text-emerald-soft hover:underline">Browse</Link>
+              <h2 className="font-semibold text-ink">💼 Opportunities for you</h2>
+              <Link href="/careers" className="text-sm text-teal-deep hover:underline">Browse</Link>
             </div>
             <ul className="mt-4 divide-y divide-line">
               {opportunities.slice(0, 2).map((o) => (
                 <li key={o.id} className="py-3">
-                  <p className="text-sm font-medium text-white">{o.title}</p>
+                  <p className="text-sm font-medium text-ink">{o.title}</p>
                   <p className="text-xs text-slate-400">{o.org} · {o.location}</p>
                 </li>
               ))}
@@ -113,7 +113,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="card">
-            <h2 className="font-semibold text-white">📚 Fresh from the Knowledge Hub</h2>
+            <h2 className="font-semibold text-ink">📚 Fresh from the Knowledge Hub</h2>
             <ul className="mt-4 space-y-2 text-sm text-slate-300">
               {knowledge.slice(0, 3).map((k) => (
                 <li key={k.id}>· {k.title}</li>

@@ -5,8 +5,8 @@ import { opportunities } from "@/lib/data/seed";
 export const metadata: Metadata = { title: "Careers" };
 
 const TYPE_STYLE: Record<string, string> = {
-  "full-time": "border-emerald/40 text-emerald-soft",
-  advisory: "border-indigo/40 text-indigo-soft",
+  "full-time": "border-teal/40 text-teal-deep",
+  advisory: "border-orange/40 text-orange",
   internship: "",
   contract: "",
   board: "",
@@ -28,7 +28,7 @@ export default function CareersPage() {
           {/* Development resources */}
           <aside className="space-y-3 lg:order-2">
             <div className="card">
-              <h2 className="font-semibold text-white">Career development</h2>
+              <h2 className="font-semibold text-ink">Career development</h2>
               <ul className="mt-3 space-y-2 text-sm text-slate-400">
                 <li>· AI-reviewed résumé & profile optimization</li>
                 <li>· Mock interviews with industry mentors</li>
@@ -37,7 +37,7 @@ export default function CareersPage() {
               </ul>
             </div>
             <div className="card">
-              <h2 className="font-semibold text-white">For employers</h2>
+              <h2 className="font-semibold text-ink">For employers</h2>
               <p className="mt-2 text-sm text-slate-400">
                 Sponsors and member companies post roles and tap a curated talent pool of 3,500+
                 life-sciences professionals (~70% PhDs).
@@ -50,7 +50,7 @@ export default function CareersPage() {
             {sorted.map((o) => (
               <article key={o.id} className="card card-hover">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-semibold text-white">{o.title}</h3>
+                  <h3 className="font-semibold text-ink">{o.title}</h3>
                   <span className={`chip ${TYPE_STYLE[o.type] ?? ""}`}>{o.type}</span>
                 </div>
                 <p className="mt-1 text-sm text-slate-300">

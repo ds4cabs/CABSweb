@@ -66,7 +66,7 @@ export default function AssistantPage() {
                   <div
                     className={`inline-block max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm ${
                       t.role === "user"
-                        ? "bg-brand-gradient text-white"
+                        ? "bg-brand-gradient text-ink"
                         : "border border-line bg-surface-2 text-slate-200"
                     }`}
                   >
@@ -74,7 +74,7 @@ export default function AssistantPage() {
                     {t.sources && t.sources.length > 0 && (
                       <div className="mt-2 flex flex-wrap gap-1.5 border-t border-line/60 pt-2">
                         {t.sources.map((s, j) => (
-                          <a key={j} href={s.href} className="chip hover:border-emerald/50 hover:text-emerald-soft">
+                          <a key={j} href={s.href} className="chip hover:border-orange/50 hover:text-teal-deep">
                             {s.title}
                           </a>
                         ))}
@@ -97,7 +97,7 @@ export default function AssistantPage() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask the CABS Assistant…"
-                className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-indigo"
+                className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink outline-none placeholder:text-slate-500 focus:border-teal"
               />
               <button type="submit" disabled={loading} className="btn-primary disabled:opacity-50">
                 Send
